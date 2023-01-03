@@ -20,5 +20,18 @@ class Museum
   def admit(patron)
     @patrons << patron
   end
+
+  def patrons_by_exhibit_interest
+    name = @exhibits.map do |exhibit|
+        exhibit.name
+    end
+    patron = @patrons.map do |patron|
+      if patron.interests == name
+      end
+    end
+#     {
+#   name => patron
+# }
+  end
   
 end
