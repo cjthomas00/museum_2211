@@ -16,4 +16,8 @@ class Museum
   def recommend_exhibits(patron)
     patron.interests
   end
+
+  def admit(patron)
+    @patrons << patron
+  end
 end
