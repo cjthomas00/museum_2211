@@ -105,6 +105,8 @@ RSpec.describe Museum do
   end
 
   describe '#ticket_lottery_contestants' do
-    expect(dmns.ticket_lottery_contestants(dead_sea_scrolls)).to eq([patron_1, patron_2, patron_3])
+    it 'can display lottery ticket patrons' do
+      expect(dmns.ticket_lottery_contestants(dead_sea_scrolls)).to eq([patron_1, patron_2, patron_3])
+    end
   end
 end
