@@ -77,7 +77,27 @@ RSpec.describe Museum do
       dmns.admit(patron_3)
 
       expect(dmns.patrons).to eq([patron_1, patron_2, patron_3])
+    end
+  end
 
+  describe "#patrons_by_exhibit_interest" do 
+    before do 
+      dmns.add_exhibit(gems_and_minerals)
+      dmns.add_exhibit(dead_sea_scrolls)
+      dmns.add_exhibit(imax)
+      patron_1.add_interest("Gems and Minerals")
+      patron_1.add_interest("Dead Sea Scrolls")
+      patron_2.add_interest("Dead Sea Scrolls")
+      patron_3.add_interest("Dead Sea Scrolls")
+    end
+
+    it 'can show exhibits with patrons intersted in them' do 
+      expected_hash = {
+      "Gems and Minerals" => [patron_1],
+      "Dead Sea Scrolls" => [patron_1, patron_2, patron_3],
+      "Imax" => []}
+
+      expect(dmns.patrons_by_exhibit_interest).to eq(expected_hash)
     end
   end
 end
