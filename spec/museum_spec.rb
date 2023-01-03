@@ -41,4 +41,10 @@ RSpec.describe Museum do
       expect(dmns.recommend_exhibits(patron_2)).to eq(["Imax"])
     end
   end
+
+  describe "#patrons" do
+    it "can hold patrons" do 
+      expect(dmns.patrons).to eq([])
+    end
+  end
 end
